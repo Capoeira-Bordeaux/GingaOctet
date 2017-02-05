@@ -16,7 +16,7 @@ import {
 export default class GingaOctet extends Component {
   render() {
     return (
-      <Image source={require('./assets/images/background.jpg')} style={styles.container}>
+      <Image source={require('./assets/images/background.png')} style={styles.container}>
         <Text style={styles.welcome}>
           Welcome to React Native!
         </Text>
@@ -56,7 +56,6 @@ const styles = StyleSheet.create({
         color: '#333333',
         marginBottom: 5,
     },
-
 });
 
 AppRegistry.registerComponent('GingaOctet', () => GingaOctet);

@@ -1,3 +1,9 @@
+/**
+ * Sample React Native App
+ * https://github.com/facebook/react-native
+ * @flow
+ */
+
 import React, { Component } from 'react';
 import {
     AppRegistry,
@@ -7,36 +13,23 @@ import {
     View
 } from 'react-native';
 
-/*
- class BackgroundImage extends Component {
-
- render() {
- return (
- <Image source={require('./assets/images/background.jpg')} style={styles.backgroundImage}>
- {this.props.children}
- </Image>
- )
- }
- }
- */
-
 export default class GingaOctet extends Component {
-  render() {
-    return (
-      <Image source={require('./assets/images/background.jpg')} style={styles.container}>
-        <Text style={styles.welcome}>
-          Welcome to React Native!
-        </Text>
-        <Text style={styles.instructions}>
-          To get started, edit index.ios.js
-        </Text>
-        <Text style={styles.instructions}>
-          Press Cmd+R to reload,{'\n'}
-          Cmd+D or shake for dev menu
-        </Text>
-      </Image>
-    );
-  }
+    render() {
+        return (
+            <Image source={require('./assets/images/background.png')} style={styles.backgroundImage}>
+                <Text style={styles.welcome}>
+                    Welcome to React Native!
+                </Text>
+                <Text style={styles.instructions}>
+                    To get started, edit index.android.js
+                </Text>
+                <Text style={styles.instructions}>
+                    Double tap R on your keyboard to reload,{'\n'}
+                    Shake or press menu button for dev menu
+                </Text>
+            </Image>
+        );
+    }
 }
 
 const styles = StyleSheet.create({
@@ -46,6 +39,7 @@ const styles = StyleSheet.create({
         height: null,
         resizeMode: 'cover', // 'stretch'
         backgroundColor: 'transparent',
+        justifyContent: 'center',
     },
     container: {
         flex: 1,
