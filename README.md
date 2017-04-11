@@ -30,6 +30,7 @@ Application permettant de s'initier ou de s'améliorer à la Copoeira
 
 ## facebook
 
+   * https://developers.facebook.com/docs/react-native/getting-started
    * https://developers.facebook.com/docs/react-native/login
    * http://alexanderpaterson.com/posts/add-social-authentication-to-a-react-native-application
 

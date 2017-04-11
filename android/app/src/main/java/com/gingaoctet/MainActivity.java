@@ -1,8 +1,12 @@
 package com.gingaoctet;
 
+import android.content.Intent;
 import com.facebook.react.ReactActivity;
+import com.facebook.CallbackManager;
 
 public class MainActivity extends ReactActivity {
+
+    CallbackManager mCallbackManager;
 
     /**
      * Returns the name of the main component registered from JavaScript.
