@@ -1,93 +1,86 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- * @flow
- *
- *  global.Auth0Lock = require('react-native-lock-ios');
-
- Double tap R on your keyboard to reload,{'\n'}
- Shake or press menu button for dev menu
- *
- */
-
 import React, { Component } from 'react';
+
 import {
     AppRegistry,
     StyleSheet,
-    Image,
     Text,
-    View
+    View,
+    Navigator,
+    TouchableHighlight
 } from 'react-native';
-import Auth0Lock from 'react-native-lock';
 
-var lock = new Auth0Lock({clientId: 'qDQ2MMfg_USJmU3eu4mIW1haq5K_aGnP', domain: 'sebastiend.eu.auth0.com',
-    integrations: {
-        facebook: {
-            permissions: ['public_profile']
-        }
-    }});
+import WelcomeView from './welcome-view';
+import ProfileView from './profile-view';
 
-export default class GingaOctet extends Component {
+class GingaOctet extends Component {
     render() {
         return (
-            <Image source={require('./assets/images/logo.png')} style={styles.container}>
-                <Text style={styles.welcome}>
-                    Welcome to React Native!
-                </Text>
-                <Text style={styles.instructions}>
-                    To get started, edit index.android.js
-                </Text>
-                <Text style={styles.instructions}>
-                    Double tap R on your keyboard to reload,{'\n'}
-                    Shake or press menu button for dev menu
-                </Text>
-            </Image>
+            <Navigator style={styles.navigator}
+                       initialRoute={{ name: "Welcome"}}
+                       renderScene= { this.renderScene }
+                       navigationBar={
+                           <Navigator.NavigationBar
+                               style={ styles.nav }
+                               routeMapper={NavigationBarRouteMapper} />
+                       }
+            />
         );
     }
-    _onLogin() {
-        lock.show({
-            closable: true,
-        }, (err, profile, token) => {
-            if (err) {
-                console.log(err);
-                return;
-            }
-            console.log('Logged in with Auth0!');
-            this.props.navigator.push({
-                name: 'Profile',
-                passProps: {
-                    profile: profile,
-                    token: token,
-                }
-            });
-        });
+
+    renderScene(route, navigator) {
+        if (route.name == "Welcome") {
+            return <WelcomeView navigator={navigator} {...route.passProps} />
+        }
+        if (route.name == "Profile") {
+            return <ProfileView navigator={navigator} {...route.passProps} />
+        }
     }
 }
 
+var NavigationBarRouteMapper = {
+    LeftButton(route, navigator, index, navState) {
+        if(index > 0) {
+            return (
+                <TouchableHighlight
+                    underlayColor="transparent"
+                    onPress={() => { if (index > 0) { navigator.pop() } }}>
+                    <Text style={ styles.leftNavButtonText }>Back</Text>
+                </TouchableHighlight>)
+        }
+        else { return null }
+    },
+
+    RightButton(route, navigator, index, navState) {
+        return null
+    },
+
+    Title(route, navigator, index, navState) {
+        return <Text style={ styles.title }>Ginga Octet</Text>
+    }
+};
+
 const styles = StyleSheet.create({
-    backgroundImage: {
+    navigator: {
         flex: 1,
-        width: null,
-        height: null,
-        resizeMode: 'cover', // 'stretch'
-        backgroundColor: 'transparent',
     },
-    container: {
-        flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
-        backgroundColor: '#F5FCFF',
+    title: {
+        marginTop:4,
+        fontSize:16
     },
-    welcome: {
-        fontSize: 20,
-        textAlign: 'center',
-        margin: 10,
+    leftNavButtonText: {
+        fontSize: 18,
+        marginLeft:13,
+        marginTop:2
     },
-    instructions: {
-        textAlign: 'center',
-        color: '#333333',
-        marginBottom: 5,
+    rightNavButtonText: {
+        fontSize: 18,
+        marginRight:13,
+        marginTop:2
     },
+    nav: {
+        height: 60,
+        backgroundColor: '#efefef'
+    }
 });
 
 AppRegistry.registerComponent('GingaOctet', () => GingaOctet);
