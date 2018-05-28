@@ -28,6 +28,11 @@ Application permettant de s'initier ou de s'améliorer à la Copoeira
 
    * https://github.com/fullstackreact/react-native-oauth
 
+## auth0
+
+  * https://github.com/auth0/Mobile-Samples.React/tree/master/Classic/Lock
+  * https://community.auth0.com/questions/542/lock-google-403-disallowed-useragent 
+
 ## facebook
 
    * https://developers.facebook.com/docs/react-native/login
