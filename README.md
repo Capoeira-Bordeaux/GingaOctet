@@ -1,6 +1,6 @@
 # GingaOctet
 
-Application permettant de s'initier ou de s'améliorer à la Copoeira
+Application permettant de s'initier ou de s'améliorer à la Capoeira
 
 # Notes
 
@@ -20,7 +20,7 @@ Application permettant de s'initier ou de s'améliorer à la Copoeira
 
    * https://facebook.github.io/react-native/docs/getting-started.html#content
 
-## Basics / Guides / Compenents/ apis
+## Basics / Guides / Components/ apis
 
    * https://facebook.github.io/react-native/docs
 
