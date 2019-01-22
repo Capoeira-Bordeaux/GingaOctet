@@ -1,4 +1,4 @@
-package com.capoeirabordeaux.gingaoctet;
+package com.gingaoctet.app;
 
 import com.facebook.react.ReactActivity;
 

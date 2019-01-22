@@ -1,4 +1,4 @@
-package com.capoeirabordeaux.gingaoctet;
+package com.gingaoctet.app;
 
 import android.annotation.SuppressLint;
 import android.app.Application;
